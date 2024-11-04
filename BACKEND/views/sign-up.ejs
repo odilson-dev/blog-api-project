@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <% if(errors){ %> <%- include('errors', { errors }) %> <% }%>
+    <h1>Sign Up</h1>
+    <form action="" method="POST">
+      <div>
+        <label for="username">Username</label>
+        <input
+          id="username"
+          name="username"
+          placeholder="username"
+          type="text"
+        />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          placeholder="johndoe@gmail.com"
+          type="email"
+        />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" />
+      </div>
+      <div>
+        <label for="password">Confirm Password</label>
+        <input id="password" name="confirmPassword" type="password" />
+      </div>
+      <button>Sign Up</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"express-async-handler": "^1.2.0",
+		"express-session": "^1.18.1",
+		"express-validator": "^7.2.0",
+		"passport": "^0.7.0",
+		"passport-local": "^1.0.0"
+	}
+}
