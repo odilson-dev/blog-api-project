@@ -1,6 +1,7 @@
 let express = require("express");
 let router = express.Router();
 let userController = require("../controllers/userController");
+const jwt = require("jsonwebtoken");
 
 const { checkSchema } = require("express-validator");
 
@@ -51,4 +52,29 @@ router.get("/log-out", (req, res, next) => {
   });
 });
 
+// FORMAT OF TOKEN
+// Authorization: Bearer <access_token>
+
+// Verify token
+function verifyToken(req, res, next) {
+  const bearerHeader = req.headers["authorization"];
+  console.log(bearerHeader);
+
+  // Check if bearer is undefined
+  if (typeof bearerHeader !== "undefined") {
+    // Split at the space
+    const bearer = bearerHeader.split(" ");
+    // Get the token from Array
+    const bearerToken = bearer[1];
+
+    // Set the token
+    req.token = bearerToken;
+
+    // Call the next middleware
+    next();
+  } else {
+    // Forbidden
+    res.sendStatus(403);
+  }
+}
 module.exports = router;
